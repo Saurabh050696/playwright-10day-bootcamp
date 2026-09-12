@@ -6,4 +6,5 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-/End-of-day-memory-write-up/
+write-file.md
+.env

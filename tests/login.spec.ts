@@ -1,18 +1,23 @@
 import { expect, test } from '@playwright/test';
-test.describe("Practice test suite", () => {
-    test.beforeEach(async ({ page }) => {
-       await page.goto('https://www.saucedemo.com/');
+import { users } from '../testData';
+import { LoginPage } from '../pages/LoginPage';
+
+test.describe('closed-book test writing using for loop', () => {
+
+    test.beforeEach('navigation', async ({ page }) => {
+        await page.goto('/');
     });
-    test("writing the test again from scratch", async ({ page }) => {
-        await page.locator('[data-test="username"]').fill("standard_user");
-        await page.locator('[data-test="password"]').fill("secret_sauce");
-        await page.getByRole('button', { name: 'Login' }).click();
-        await expect(page).toHaveURL(/.*inventory/);
+
+    for (const eachUser of users) {
+    test(`${eachUser.username} ${eachUser.tag}`, async ({ page }) => {
+        const loginPage = new LoginPage(page);
+        await loginPage.login(eachUser.username, eachUser.password);
+        if (eachUser.isLocked) {
+            await expect(page.getByRole('alert')).toContainText('Epic sadface: Sorry, this user has been locked out.');
+        } else {
+            await expect(page).toHaveURL(/inventory/i);
+        }
+
     });
-    test("invalid login test", async ({ page }) => {
-        await page.getByRole('textbox', { name: 'Username' }).fill("standard_user");
-        await page.getByRole('textbox', { name: 'Password' }).fill("wrong_password");
-        await page.getByRole('button', { name: 'Login' }).click();
-        await expect(page.getByRole('heading', { name: 'Epic sadface: Username and password do not match any user in this service' })).toBeVisible();
-    });
+}
 });
