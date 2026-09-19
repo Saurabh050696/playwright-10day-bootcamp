@@ -14,9 +14,9 @@
 7. template literal syntax: `${<any variable>}`. Template literal allows us to add variables in strings.
 
 ## Promise, async and await
-- **Promise** represents eventual completion (result) or failure. It resolves successfully or rejects with an error.
-- **async** makes the function return promise and allows us to use 'await' inside function.
-- **await** pauses the current async function (not the whole program) till the promise is settled (either success or failure)
+- **Promise** represents (an object representing) eventual completion (result) or failure of `an asynchronous operation`. It resolves successfully or rejects with an error.
+- **async** makes the function return promise and allows us to use 'await' inside it.
+- **await** pauses the current async function (not the whole program) till the promise is settled (either success or failure). `await pauses the current function until either the promise resolves, in which case it gives the value or the promise is rejected, in which case it throws an error`
 - We need to use async/await for our function because some browser operations take time to complete.
 
 ## Typed test data and data-driven tests

@@ -12,8 +12,8 @@
 - 204: No content (No body) (doesn't specifically mean deletion)
 - 301: Redirected (Permanently redirected) (resource moved permanently to another URL)
 - 400: Bad request
-- 401: Unauthorized (authentication is missing or failed)
-- 403: Forbidden (client is authenticated but lacks permission)
+- 401: Unauthorized (authentication is missing or failed) (client is not successfully authenticated—credentials are missing, invalid, or expired)
+- 403: Forbidden (client is authenticated but lacks permission) (server recognizes the client, but the client lacks permission for that resource or action)
 - 404: Not found (resource not present)
 - 500: Internal server error
 - 503: Service unavailable (temporarily)

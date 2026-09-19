@@ -39,7 +39,7 @@ Priority: How urgently the team should fix a bug.
 11. Status
 
 ## test-case fields
-1. ID
+1. Test Case ID
 2. Title
 3. Precondition
 4. Steps
