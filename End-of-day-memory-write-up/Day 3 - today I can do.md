@@ -96,9 +96,9 @@
 16. `npx playwright test --retries=2` - this will run the tests for 2 additional attempts if original run fails. This overrides the config in playwright.config.ts.
 
 ## UI Mode, Debug Mode, headed mode, trace, report, and codegen
-- UI mode - it is playwright test runner, which has all the test suites/files along with tests inside and contains all the info such as trace, locators, etc.
-- Debug mode - playwright inspector and browser window is opened, where we can observe each step by clicking step over one by one, to pinpoint the buggy step/line.
-- headed mode - runs tests in visible browser window/s
-- trace - It is a snapshot of entire test containing network details (requests sent and responses received), page state at each step and helps us pinpoint the exact state at the time of bug.
+- UI mode - it is playwright test runner, which has all the test suites/files along with tests inside and contains all the info such as trace, locators, etc. **UI Mode is the interactive test-running interface for selecting, watching, and re-running tests.**
+- Debug mode - playwright inspector and browser window is opened, where we can observe each step by clicking step over one by one, to pinpoint the buggy step/line. **Debug mode opens the Playwright Inspector and pauses execution for step-by-step debugging.**
+- headed mode - runs tests in visible browser window/s. **headed mode only controls browser visibility—it does not provide the Inspector or UI Mode.**
+- trace - It is a snapshot of entire test containing network details (requests sent and responses received), page state at each step and helps us pinpoint the exact state at the time of bug. **trace is a recorded post-run diagnostic timeline.**
 - report - The HTML reporter produces a report for the run. `npx playwright show-report` opens the latest report.
 - codegen - it helps us generate initial code and observe the new web app before writing proper test scripts. Codegen proposes Locators that may work, but generated code must be reviewed for repetition, maintainability and meaningful assertions.
